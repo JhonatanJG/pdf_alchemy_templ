@@ -1,4 +1,3 @@
-
 # PDF Alchemy
 
 This is the template repo for the CLI tool to manipulate pdfs
@@ -8,6 +7,13 @@ This is the template repo for the CLI tool to manipulate pdfs
 # Requirements
 - Python
 - UV
+- pymupdf
+
+# Sync and update project packages
+
+```bash
+uv sync
+```
 
 # Run the tool
 
@@ -25,9 +31,24 @@ source .venv/bin/activate
 uv run main.py
 ```
 
+# Commands
+
+> Add here the commands
 
 # Run tests
 
 ```bash
-uv run pytest
+uv run pytest -q
 ```
+
+# Compile to a standalone executable
+
+```bash
+uv pip install pyinstaller
+```
+
+```bash
+uv run pyinstaller --onefile main.py
+```
+
+> You'll see the new compilation under `dist/`

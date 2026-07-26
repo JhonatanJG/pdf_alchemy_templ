@@ -19,10 +19,9 @@ class PDFArgumentParser():
             dest="output_path",
             type=str,
             help="Direct the output directory/file",
-            required=True
         )
         self.parser.add_argument(
-            "-tp", "--total-pages", 
+            "-tp", "--total-pages",
             help="From the file location get total pages of the PDF",
             action="store_true"
         )
@@ -73,7 +72,7 @@ class PDFArgumentParser():
             if start < 1 or end < 1:
                 self.parser.error(f"ERR: start {start} or end {end} range must be positive numbers")
             return list(range(start - 1, end))
-       single_page = int(value) 
+       single_page = int(value)
        if single_page < 1:
            self.parser.error(f"ERR: Page {single_page} has to be positive")
        return [int(value) - 1]
