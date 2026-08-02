@@ -7,8 +7,8 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from pdf_alchemy.cmdline import Cmdline
-from pdf_alchemy.parseargs import PDFArgumentParser
+from pdf_alchemy_templ.cmdline import Cmdline
+from pdf_alchemy_templ.parseargs import PDFArgumentParser
 
 ASSET_PDF = PROJECT_ROOT / "pdf_alchemy" / "tests" / "assets" / "test_alchemy.pdf"
 
