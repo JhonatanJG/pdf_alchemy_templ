@@ -10,7 +10,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from pdf_alchemy_templ.cmdline import Cmdline
 from pdf_alchemy_templ.parseargs import PDFArgumentParser
 
-ASSET_PDF = PROJECT_ROOT / "pdf_alchemy" / "tests" / "assets" / "test_alchemy.pdf"
+ASSET_PDF = Path(__file__).resolve().parent / "assets" / "test_alchemy.pdf"
 
 
 def run_cmdline(args_list, capsys):
