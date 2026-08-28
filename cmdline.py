@@ -80,8 +80,12 @@ class Cmdline:
             left_rect = pymupdf.Rect(rect.x0, rect.y0, mid_x, rect.y1)
             right_rect = pymupdf.Rect(mid_x, rect.y0, rect.x1, rect.y1)
 
-            # Duplicamos la pagina justo despues de la original
-            src.copy_page(idx, to=idx + 1)
+            # Duplicamos la pagina justo despues de la original.
+            # OJO: copy_page() crea solo una referencia que comparte el mismo
+            # xref con la pagina original, asi que el segundo set_cropbox()
+            # terminaria sobreescribiendo tambien la primera pagina.
+            # fullcopy_page() crea un xref independiente para cada mitad.
+            src.fullcopy_page(idx, to=idx + 1)
             src[idx].set_cropbox(left_rect)
             src[idx + 1].set_cropbox(right_rect)
             offset += 1
